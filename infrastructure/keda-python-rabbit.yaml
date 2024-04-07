@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: DynamicScaleApp
+  namespace: default
+  labels:
+    app: DynamicScaleApp
+spec: 
+  selector:
+    matchLabels:
+      app: DynamicScaleApp
+  template:
+    metadata:
+      labels:
+        app: DynamicScaleApp
+    spec:
+      containers:
+      - name: service
+        image: andrelugon/queue-consumer
